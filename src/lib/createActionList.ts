@@ -1,17 +1,15 @@
-import { createMemo, createEffect } from 'solid-js';
+import {createEffect, createMemo} from 'solid-js';
 import Fuse from 'fuse.js';
-import { useStore } from './StoreContext';
-import { checkActionAllowed, getActiveParentAction } from './actionUtils/actionUtils';
-import { WrappedAction } from './types';
+import {useStore} from './StoreContext';
+import {checkActionAllowed, getActiveParentAction} from './actionUtils/actionUtils';
+import {WrappedAction} from './types';
 
 export function createActionList() {
   const [state] = useStore();
 
-  const actionsList = createMemo(() => {
+  return createMemo(() => {
     return Object.values(state.actions);
   });
-
-  return actionsList;
 }
 
 export function createNestedActionList() {
@@ -21,16 +19,12 @@ export function createNestedActionList() {
   function nestedActionFilter(action: WrappedAction) {
     const { activeId, isRoot } = getActiveParentAction(state.activeParentActionIdList);
 
-    const isAllowed = isRoot || action.parentActionId === activeId;
-    return isAllowed;
+    return isRoot || action.parentActionId === activeId;
   }
 
-  const nestedActionsList = createMemo(() => {
-    const nestedActionsList = actionsList().filter(nestedActionFilter);
-    return nestedActionsList;
+  return createMemo(() => {
+    return actionsList().filter(nestedActionFilter);
   });
-
-  return nestedActionsList;
 }
 
 export function createConditionalActionList() {
@@ -38,16 +32,12 @@ export function createConditionalActionList() {
   const nestedActionsList = createNestedActionList();
 
   function conditionalActionFilter(action: WrappedAction) {
-    const isAllowed = checkActionAllowed(action, state.actionsContext);
-    return isAllowed;
+    return checkActionAllowed(action, state.actionsContext);
   }
 
-  const conditionalActionList = createMemo(() => {
-    const conditionalActionList = nestedActionsList().filter(conditionalActionFilter);
-    return conditionalActionList;
+  return createMemo(() => {
+    return nestedActionsList().filter(conditionalActionFilter);
   });
-
-  return conditionalActionList;
 }
 
 export function createSearchResultList() {
@@ -78,8 +68,7 @@ export function createSearchResultList() {
 
     const searchResults = fuse.search(state.searchText);
 
-    const resultsList = searchResults.map((result) => result.item);
-    return resultsList;
+    return searchResults.map((result) => result.item);
   });
 
   createEffect(() => {
