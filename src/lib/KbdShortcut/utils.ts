@@ -2,16 +2,25 @@ import { parseKeybinding } from 'tinykeys';
 import { GetFormattedShortcut } from './types';
 
 function getFormattedKey(key: string) {
-  if (key === 'Meta') {
-    return '⌘';
-  }
-
-  if (key === 'Control') {
-    return 'Ctrl';
-  }
-
-  if (key === 'Escape') {
-    return 'Esc';
+  switch (key) {
+    case 'Meta':
+      return '⌘';
+    case 'Control':
+      return 'Ctrl';
+    case 'Escape':
+      return 'Esc';
+    case 'ArrowUp':
+      return '↑';
+    case 'ArrowDown':
+      return '↓';
+    case 'ArrowLeft':
+      return '←';
+    case 'ArrowRight':
+      return '→';
+    case 'Backspace':
+      return '⌫';
+    case 'Enter':
+      return '↵';
   }
 
   return key;
@@ -20,11 +29,8 @@ function getFormattedKey(key: string) {
 export const getFormattedShortcut: GetFormattedShortcut = (shortcut) => {
   const parsedShortcut = parseKeybinding(shortcut);
 
-  const formattedShortcut = parsedShortcut.map((group) => {
+  return parsedShortcut.map((group) => {
     const flatGroup = group.flat();
-    const formattedGroup = flatGroup.map(getFormattedKey);
-    return formattedGroup;
+    return flatGroup.map(getFormattedKey);
   });
-
-  return formattedShortcut;
 };
