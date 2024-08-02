@@ -60,6 +60,10 @@ const appRender = () => {
           />
         </Route>
       </Route>
+      <Route
+        path="*"
+        component={() => <div>404 - looks like you're lost</div>}
+      />
     </Router>
   );
 };
