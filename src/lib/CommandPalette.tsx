@@ -9,7 +9,7 @@ import {
   Show,
 } from 'solid-js';
 import { Transition } from 'solid-transition-group';
-import {tinykeys} from 'tinykeys';
+import { tinykeys } from 'tinykeys';
 import { useStore } from './StoreContext';
 import { CommandPalettePortal } from './CommandPalettePortal';
 import { KbdShortcut } from './KbdShortcut/KbdShortcut';

@@ -1,8 +1,8 @@
-import {createEffect, createMemo} from 'solid-js';
+import { createEffect, createMemo } from 'solid-js';
 import Fuse from 'fuse.js';
-import {useStore} from './StoreContext';
-import {checkActionAllowed, getActiveParentAction} from './actionUtils/actionUtils';
-import {WrappedAction} from './types';
+import { useStore } from './StoreContext';
+import { checkActionAllowed, getActiveParentAction } from './actionUtils/actionUtils';
+import { WrappedAction } from './types';
 
 export function createActionList() {
   const [state] = useStore();

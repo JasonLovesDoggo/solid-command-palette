@@ -1,8 +1,8 @@
-import {Component, Show, Suspense} from 'solid-js';
+import { Component, Show, Suspense } from 'solid-js';
 import { Loader } from '../../../shared/Loader/Loader';
 import styles from './DocsShell.module.css';
-import {AnchorProps, A, useIsRouting} from "@solidjs/router";
-import {ParentComponent} from "solid-js/types/render/component";
+import { AnchorProps, A, useIsRouting } from '@solidjs/router';
+import { ParentComponent } from 'solid-js/types/render/component';
 
 const SidebarNavLink: Component<AnchorProps> = (p) => {
   return (
@@ -53,9 +53,7 @@ const DocsShellView: ParentComponent = (p) => {
       </aside>
       <main class={styles.main}>
         <Suspense fallback={<Loader size="large" />}>
-          <div class={styles.mainContent}>
-            {p.children}
-          </div>
+          <div class={styles.mainContent}>{p.children}</div>
         </Suspense>
       </main>
     </section>

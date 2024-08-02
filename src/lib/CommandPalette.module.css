@@ -38,7 +38,9 @@
 
 .animEnterActive .panel {
   opacity: 1;
-  transition: opacity, transform 200ms;
+  transition:
+    opacity,
+    transform 200ms;
 }
 
 .animExit .panel {
@@ -48,7 +50,10 @@
 .animExitActive .panel {
   opacity: 0;
   transform: translateY(70px) scaleX(0.8);
-  transition: opacity, transform 300ms, 200ms;
+  transition:
+    opacity,
+    transform 300ms,
+    200ms;
 }
 
 .searchForm {

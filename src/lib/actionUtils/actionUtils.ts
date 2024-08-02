@@ -31,7 +31,7 @@ export function checkActionAllowed(action: WrappedAction, actionsContext: Action
 export function runAction(
   action: WrappedAction,
   actionsContext: ActionsContext,
-  storeMethods: RunStoreMethods
+  storeMethods: RunStoreMethods,
 ) {
   const { id, run } = action;
 
@@ -48,7 +48,7 @@ export function runAction(
 export function getShortcutHandlersMap(
   actionsList: WrappedActionList,
   actionsContext: ActionsContext,
-  storeMethods: StoreMethods
+  storeMethods: StoreMethods,
 ) {
   const shortcutMap: KeyBindingMap = {};
 

@@ -39,7 +39,7 @@ describe('Test Action Utils', () => {
         dynamic: {},
       };
       expect(checkActionAllowed(action, failingActionsContext), 'action is not allowed').toBe(
-        false
+        false,
       );
 
       const passingActionsContext = {
@@ -71,7 +71,7 @@ describe('Test Action Utils', () => {
         },
       };
       expect(checkActionAllowed(action, failingActionsContext), 'action is not allowed').toBe(
-        false
+        false,
       );
 
       const passingActionsContext = {

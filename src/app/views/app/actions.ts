@@ -44,7 +44,7 @@ const githubAction = defineAction({
     window.open(
       'https://github.com/itaditya/solid-command-palette',
       '_blank',
-      'noopener noreferrer'
+      'noopener noreferrer',
     );
   },
 });
@@ -58,7 +58,7 @@ const npmAction = defineAction({
     window.open(
       'https://www.npmjs.com/package/solid-command-palette',
       '_blank',
-      'noopener noreferrer'
+      'noopener noreferrer',
     );
   },
 });

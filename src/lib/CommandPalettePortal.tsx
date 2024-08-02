@@ -1,6 +1,6 @@
-import {createRenderEffect, onCleanup} from 'solid-js';
+import { createRenderEffect, onCleanup } from 'solid-js';
 import { Portal } from 'solid-js/web';
-import {ParentComponent} from "solid-js/types/render/component";
+import { ParentComponent } from 'solid-js/types/render/component';
 
 type PortalElem = undefined | HTMLDivElement;
 

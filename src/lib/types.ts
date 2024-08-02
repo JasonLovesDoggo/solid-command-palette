@@ -1,4 +1,4 @@
-import { Component } from 'solid-js';
+import { Component, JSXElement } from 'solid-js';
 import { DeepReadonly, Store } from 'solid-js/store';
 
 export type ActionId = string;
@@ -60,6 +60,7 @@ export interface RootProps {
   actions: Actions;
   actionsContext: ActionContext;
   components?: Components;
+  children: JSXElement;
 }
 
 export interface StoreState {
@@ -91,5 +92,5 @@ type CreateSyncActionsContextCallback = () => ActionContext;
 
 export type CreateSyncActionsContext = (
   actionId: ActionId,
-  callback: CreateSyncActionsContextCallback
+  callback: CreateSyncActionsContextCallback,
 ) => void;
