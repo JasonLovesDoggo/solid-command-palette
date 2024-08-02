@@ -9,7 +9,7 @@ export const defineAction = (partialAction: PartialAction): Action => {
   const shortcut = partialAction.shortcut || null;
   const run = partialAction.run;
 
-  const normalizedAction = {
+  return {
     id,
     parentActionId,
     title,
@@ -19,6 +19,4 @@ export const defineAction = (partialAction: PartialAction): Action => {
     cond: partialAction.cond,
     run,
   };
-
-  return normalizedAction;
 };
