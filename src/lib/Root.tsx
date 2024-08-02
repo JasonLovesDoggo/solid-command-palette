@@ -33,7 +33,6 @@ export const Root: Component<RootProps> = (p) => {
       setState('searchText', newValue);
     },
     setActionsContext(actionId, newData) {
-      // @ts-expect-error need to figure out nested store setters.
       setState('actionsContext', 'dynamic', actionId, newData);
     },
     resetActionsContext(actionId) {
@@ -42,7 +41,7 @@ export const Root: Component<RootProps> = (p) => {
         'dynamic',
         produce<DynamicContextMap>((dynamicContext) => {
           delete dynamicContext[actionId];
-        })
+        }),
       );
     },
     openPalette() {
