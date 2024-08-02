@@ -31,10 +31,12 @@ Try the full demo on [our documentation site](https://solid-command-palette.verc
 
 ```sh
 # Core Library
-npm install solid-command-palette
+pnpm install solid-command-palette
+# if using npm replace `pnpm` with `npm`
 
 # Peer Dependencies
-npm install solid-transition-group tinykeys fuse.js
+pnpm install solid-transition-group tinykeys fuse.js
+# if using npm replace `pnpm` with `npm`
 ```
 
 - [solid-transition-group](https://github.com/solidjs/solid-transition-group) (1.6KB): provides advanced animation support. It's the official recommendation from SolidJS team so you might be using it already.
