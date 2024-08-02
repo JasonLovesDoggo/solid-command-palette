@@ -22,10 +22,10 @@ const ResultContent: Component<ResultContentProps> = (p) => {
       </div>
       <div>
         <Show when={p.action.shortcut}>
-            <KbdShortcut
-              class={styles.resultShortcut}
-              shortcut={p.action.shortcut!}
-            />
+          <KbdShortcut
+            class={styles.resultShortcut}
+            shortcut={p.action.shortcut!}
+          />
         </Show>
       </div>
     </div>
@@ -122,9 +122,13 @@ export const PanelResult: Component<PanelResultProps> = (p) => {
           each={p.resultsList}
           fallback={
             <div class={styles.resultItem}>
-              <h4 class={`${styles.resultTitle} ${utilStyles.stripSpace}`}>
-                Couldn't find any matching actions
-              </h4>
+              <li role="note">
+                <h4
+                  class={`${styles.resultTitle} ${styles.resultContent} ${utilStyles.stripSpace}`}
+                >
+                  <b>Couldn't find any matching actions </b>
+                </h4>
+              </li>
             </div>
           }
         >
