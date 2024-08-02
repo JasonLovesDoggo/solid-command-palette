@@ -14,7 +14,6 @@ const OverviewView: Component = () => {
   onMount(() => {
     sdk.embedProjectId(exampleElem, embedExampleData.projectId, {
       view: 'editor',
-      forceEmbedLayout: true,
       openFile: embedExampleData.initialFile,
       clickToLoad: true,
       height: 600,
@@ -42,6 +41,7 @@ const OverviewView: Component = () => {
         </a>
       </div>
       <div class={docsStyles.embedWrapper}>
+        {/*@ts-ignore*/}
         <div ref={exampleElem} />
       </div>
     </section>

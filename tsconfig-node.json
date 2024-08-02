@@ -6,5 +6,5 @@
     "esModuleInterop": true,
     "types": ["node"]
   },
-  "include": ["./scripts"]
+  "include": ["./scripts", "./playwright.config.ts"]
 }
