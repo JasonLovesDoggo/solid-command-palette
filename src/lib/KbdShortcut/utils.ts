@@ -22,7 +22,6 @@ function getFormattedKey(key: string) {
     case 'Enter':
       return '↵';
   }
-
   return key;
 }
 
