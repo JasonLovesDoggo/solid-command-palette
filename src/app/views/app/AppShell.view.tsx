@@ -1,5 +1,4 @@
-import {  Show } from 'solid-js';
-import { A, AnchorProps, useMatch, useNavigate } from '@solidjs/router';
+import { A, AnchorProps, useNavigate } from '@solidjs/router';
 import { Root, CommandPalette } from '../../../lib';
 import { SocialIcon, socialsData } from './SocialIcons';
 import { actions } from './actions';
@@ -20,7 +19,7 @@ const HeaderNavLink: ParentComponent<AnchorProps> = (p) => {
 };
 
 const Main: ParentComponent = (p) => {
-  const isDemo = useMatch(() => '/demo');
+  // const isDemo = useMatch(() => '/demo');
   const navigate = useNavigate();
 
   const actionsContext = {
@@ -29,15 +28,15 @@ const Main: ParentComponent = (p) => {
 
   return (
     <main class={styles.main}>
-      <Show when={!isDemo()}>
-        <Root
-          actions={actions}
-          actionsContext={actionsContext}
-        >
-          {p.children}
-          <CommandPalette />
-        </Root>
-      </Show>
+      {/*<Show when={!isDemo()}>*/}
+      <Root
+        actions={actions}
+        actionsContext={actionsContext}
+      >
+        {p.children}
+        <CommandPalette />
+      </Root>
+      {/*</Show>*/}
     </main>
   );
 };
