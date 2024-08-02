@@ -1,21 +1,22 @@
-import { Component, Suspense } from 'solid-js';
-import { NavLink, NavLinkProps, Outlet, useIsRouting } from 'solid-app-router';
+import {Component, Show, Suspense} from 'solid-js';
 import { Loader } from '../../../shared/Loader/Loader';
 import styles from './DocsShell.module.css';
+import {AnchorProps, A, useIsRouting} from "@solidjs/router";
+import {ParentComponent} from "solid-js/types/render/component";
 
-const SidebarNavLink: Component<NavLinkProps> = (p) => {
+const SidebarNavLink: Component<AnchorProps> = (p) => {
   return (
-    <NavLink
+    <A
       class={styles.navLink}
       activeClass={styles.activeNavLink}
       {...p}
     >
       {p.children}
-    </NavLink>
+    </A>
   );
 };
 
-const DocsShellView: Component = () => {
+const DocsShellView: ParentComponent = (p) => {
   const isRouting = useIsRouting();
 
   return (
@@ -53,7 +54,7 @@ const DocsShellView: Component = () => {
       <main class={styles.main}>
         <Suspense fallback={<Loader size="large" />}>
           <div class={styles.mainContent}>
-            <Outlet />
+            {p.children}
           </div>
         </Suspense>
       </main>
