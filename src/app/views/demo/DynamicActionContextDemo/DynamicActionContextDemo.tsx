@@ -1,7 +1,7 @@
 import { Component, createMemo, createSignal, createUniqueId, For, Show } from 'solid-js';
-import { KbdShortcut, createSyncActionsContext } from '../../../../lib';
-import { ownContactId, contacts, contactActionId } from './data';
-import { InputEventHandler, ContactItemProps, ReceiverContactDetailsProps } from './types';
+import { createSyncActionsContext, KbdShortcut } from '../../../../lib';
+import { contactActionId, contacts, ownContactId } from './data';
+import { ContactItemProps, InputEventHandler, ReceiverContactDetailsProps } from './types';
 import demoStyles from '../demoUtils.module.css';
 import utilStyles from '../../../utils.module.css';
 import styles from './DynamicActionContextDemo.module.css';
@@ -18,7 +18,7 @@ const ContactItem: Component<ContactItemProps> = (p) => {
     >
       <label
         class={styles.contactLabel}
-        htmlFor={inputId}
+        for={inputId}
       >
         {p.contactData.label}
       </label>
@@ -55,9 +55,7 @@ export const DynamicActionContextDemo: Component = () => {
 
   const activeContactData = createMemo(() => {
     const activeContactIdValue = activeContactId();
-    const activeContactData = contacts[activeContactIdValue];
-
-    return activeContactData;
+    return contacts[activeContactIdValue];
   });
 
   const handleInput: InputEventHandler = (event) => {
