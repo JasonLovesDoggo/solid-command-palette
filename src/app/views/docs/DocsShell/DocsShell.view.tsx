@@ -40,7 +40,7 @@ const DocsShellView: ParentComponent = (p) => {
               <SidebarNavLink href="/docs/api/define-action">defineAction</SidebarNavLink>
             </li>
             <li>
-              <SidebarNavLink href="/docs/api/root">Root</SidebarNavLink>
+              <SidebarNavLink href="/docs/api/">Root</SidebarNavLink>
             </li>
             <li>
               <SidebarNavLink href="/docs/api/command-palette">CommandPalette</SidebarNavLink>
