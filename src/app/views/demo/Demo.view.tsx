@@ -16,7 +16,6 @@ const DemoView: Component = () => {
   const [profile, setProfile] = createSignal<Profile>('personal');
   const [searchParams] = useSearchParams();
 
-  console.log('hi');
   const increment = () => {
     setCount((prev) => (prev += 1));
   };
